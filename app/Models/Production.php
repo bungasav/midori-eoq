@@ -8,35 +8,20 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Role extends Authenticatable
+class Production extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-    protected $table = 'role';
-    protected $primaryKey = 'RoleId';
+    protected $table = 'production';
+    protected $primaryKey = 'ProductionId';
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
-        'RoleId',
-        'Status',
-        'Name',
+        'ProductionId',
+        'Reference',
+        'CreatedDate',
+        'UserId'
     ];
-
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    // protected $hidden = [
-    //     'PasswordHash',
-    // ];
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-
 }

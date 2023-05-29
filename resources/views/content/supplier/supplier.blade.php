@@ -24,29 +24,29 @@ $menuTemplate = false;
 
 <div class="row">
     <div class="card">
-        <h5 class="card-header">User</h5>
+        <h5 class="card-header">Supplier</h5>
         <div class="table-responsive text-nowrap">
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>UserId</th>
-                <th>Email</th>
-                <th>Role</th>
+                <th>Name</th>
+                <th>Address</th>
                 <th>Phone Number</th>
+                <th>Bank Account</th>
                 <th>Status</th>
                 <th>Actions</th>
               </tr>
             </thead>
             <tbody class="table-border-bottom-0">
-              @foreach ($users as $user)
+              @foreach ($Suppliers as $supplier)
               <tr>
-                <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$user->UserId}}</strong></td>
-                <td>{{$user->EmailAddress}}</td>
+                <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$supplier->Name}}</strong></td>
+                <td>{{$supplier->Address}}</td>
                 <td>
-                  {{$user->Name}}
+                  {{$supplier->PhoneNumber}}
                 </td>
-                <td>  {{$user->PhoneNumber}}</span></td>
-                <td> <span class="badge bg-label-primary me-1">{{$user->status}}</span></td>
+                <td>{{$supplier->AccountNumber}} - {{$supplier->AccountName}} ({{$supplier->BankName}})</td>
+                <td> <span class="badge bg-label-primary me-1">{{$supplier->Status}}</span></td>
 
                 <td>
                   <div class="dropdown">

@@ -24,30 +24,25 @@ $menuTemplate = false;
 
 <div class="row">
     <div class="card">
-        <h5 class="card-header">User</h5>
+        <h5 class="card-header">Production List</h5>
         <div class="table-responsive text-nowrap">
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>UserId</th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>Phone Number</th>
+                <th>Reference</th>
+                <th>Date</th>
+                <th>Production By User</th>
                 <th>Status</th>
                 <th>Actions</th>
               </tr>
             </thead>
             <tbody class="table-border-bottom-0">
-              @foreach ($users as $user)
+              @foreach ($Productions as $production)
               <tr>
-                <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$user->UserId}}</strong></td>
-                <td>{{$user->EmailAddress}}</td>
-                <td>
-                  {{$user->Name}}
-                </td>
-                <td>  {{$user->PhoneNumber}}</span></td>
-                <td> <span class="badge bg-label-primary me-1">{{$user->status}}</span></td>
-
+                <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong>{{$production->Reference}}</strong></td>
+                <td>{{$production->CreatedDate}}</td>
+                <td>{{$order->UserName}}</td>
+                <td> <span class="badge bg-label-primary me-1">{{$order->Status}}</span></td>
                 <td>
                   <div class="dropdown">
                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>

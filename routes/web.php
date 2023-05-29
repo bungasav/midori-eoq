@@ -27,6 +27,10 @@ Route::middleware('auth')->group(function () {
     $controller_path = 'App\Http\Controllers';
     Route::get('/', $controller_path . '\home\Home@index')->name('home');
     Route::get('/user', $controller_path . '\user\User@index')->name('user');
+    Route::get('/supplier', $controller_path . '\supplier\Supplier@index')->name('supplier');
+    Route::get('/item', $controller_path . '\item\Item@index')->name('item');
+    Route::get('/order', $controller_path . '\order\OrderList@index')->name('order');
+    Route::get('/production', $controller_path . '\production\ProductionList@index')->name('production');
     Route::get('/template', $controller_path . '\dashboard\Analytics@index')->name('dashboard');
 
 
