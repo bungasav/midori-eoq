@@ -59,9 +59,15 @@ $menuTemplate = false;
                 </td>
               </tr>
               @endforeach
-
             </tbody>
           </table>
+          <div class="mt-4">
+            {!! $users->links('component.pagination') !!}
+          
+        </div>
+          {{-- <div class="d-flex justify-content-center">
+            {!! $users->links() !!}
+        </div> --}}
         </div>
       </div>
   <!--/ Transactions -->
