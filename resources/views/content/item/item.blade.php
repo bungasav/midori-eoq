@@ -24,30 +24,29 @@ $menuTemplate = false;
 
 <div class="row">
     <div class="card">
-        <h5 class="card-header">User</h5>
+        <h5 class="card-header">Item</h5>
         <div class="table-responsive text-nowrap">
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>UserId</th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>Phone Number</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Stock</th>
+                <th>Measurement</th>
                 <th>Status</th>
                 <th>Actions</th>
               </tr>
             </thead>
             <tbody class="table-border-bottom-0">
-              @foreach ($users as $user)
+              @foreach ($Items as $item)
               <tr>
-                <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$user->UserId}}</strong></td>
-                <td>{{$user->EmailAddress}}</td>
+                <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong>{{$item->Name}}</strong></td>
+                <td>{{$item->Description}}</td>
                 <td>
-                  {{$user->Name}}
+                  {{$item->UnitInStock}}
                 </td>
-                <td>  {{$user->PhoneNumber}}</span></td>
-                <td> <span class="badge bg-label-primary me-1">{{$user->status}}</span></td>
-
+                <td>{{$item->UnitOfMeasurement}}</td>
+                <td> <span class="badge bg-label-primary me-1">{{$item->Status}}</span></td>
                 <td>
                   <div class="dropdown">
                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
@@ -59,15 +58,9 @@ $menuTemplate = false;
                 </td>
               </tr>
               @endforeach
+
             </tbody>
           </table>
-          <div class="mt-4">
-            {!! $users->links('component.pagination') !!}
-          
-        </div>
-          {{-- <div class="d-flex justify-content-center">
-            {!! $users->links() !!}
-        </div> --}}
         </div>
       </div>
   <!--/ Transactions -->

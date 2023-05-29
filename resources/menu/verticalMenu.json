@@ -305,16 +305,46 @@
   ],
   "menu": [
     {
-      "url": "/",
-      "name": "Dashboard",
-      "icon": "menu-icon tf-icons bx bx-home-circle",
-      "slug": "home"
-    },
-    {
       "name": "User",
       "icon": "menu-icon tf-icons bx bx-user",
       "slug": "user",
       "url": "/user"
+    },
+    {
+      "name": "Supplier",
+      "icon": "menu-icon tf-icons bx bx-user",
+      "slug": "supplier",
+      "url": "/supplier"
+    },
+    {
+      "name": "Item List",
+      "icon": "menu-icon tf-icons bx bx-user",
+      "slug": "item",
+      "url": "/item"
+    },
+    {
+      "name": "Order List",
+      "icon": "menu-icon tf-icons bx bx-user",
+      "slug": "order",
+      "url": "/order"
+    },
+    {
+      "name": "Production List",
+      "icon": "menu-icon tf-icons bx bx-user",
+      "slug": "production",
+      "url": "/production"
+    },
+    {
+      "name": "EOQ",
+      "icon": "menu-icon tf-icons bx bx-user",
+      "slug": "eoq",
+      "url": "/eoq"
+    },
+    {
+      "name": "ROP",
+      "icon": "menu-icon tf-icons bx bx-user",
+      "slug": "rop",
+      "url": "/rop"
     }
   ]
 }
