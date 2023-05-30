@@ -15,11 +15,11 @@ class Product extends Controller
 
   public function index()
   {
-    $Items = ItemDB::leftJoin('supplier', 'supplier.SupplierId', '=', 'item.SupplierId')
+    $Products = ItemDB::leftJoin('supplier', 'supplier.SupplierId', '=', 'item.SupplierId')
     ->where('type', '=', 'product')
     ->select('item.*','supplier.Name as SupplierName')
     ->paginate(10);
 
-    return view('content.Item.Item',compact('Items'));
+    return view('content.Product.Product',compact('Products'));
   }
 }

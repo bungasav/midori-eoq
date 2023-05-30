@@ -40,7 +40,7 @@ $menuTemplate = false;
               </tr>
             </thead>
             <tbody class="table-border-bottom-0">
-              @foreach ($Items as $item)
+              @foreach ($Products as $item)
               <tr>
                 <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong>{{$item->Name}}</strong></td>
                 <td>{{$item->Description}}</td>
@@ -64,7 +64,7 @@ $menuTemplate = false;
             </tbody>
           </table>
           <div class="mt-4">
-            {!! $Items->links('component.pagination') !!}
+            {!! $Products->links('component.pagination') !!}
           </div>
         </div>
       </div>
