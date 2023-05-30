@@ -13,6 +13,7 @@ class OrderDetail extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
     protected $table = 'orderdetail';
     protected $primaryKey = 'OrderDetailId';
+    public $timestamps = false;
     /**
      * The attributes that are mass assignable.
      *

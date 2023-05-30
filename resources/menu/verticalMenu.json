@@ -345,6 +345,12 @@
       "icon": "menu-icon tf-icons bx bx-user",
       "slug": "rop",
       "url": "/rop"
+    },
+    {
+      "name": "Product",
+      "icon": "menu-icon tf-icons bx bx-user",
+      "slug": "product",
+      "url": "/product"
     }
   ]
 }

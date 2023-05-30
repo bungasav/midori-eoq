@@ -13,6 +13,7 @@ class Item extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
     protected $table = 'item';
     protected $primaryKey = 'ItemId';
+    public $timestamps = false;
     /**
      * The attributes that are mass assignable.
      *

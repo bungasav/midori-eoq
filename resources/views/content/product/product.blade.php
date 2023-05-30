@@ -25,33 +25,30 @@ $menuTemplate = false;
 <div class="row">
     <div class="card">
         <div class=" card-header d-flex justify-content-between">
-          <h5>Order List</h5>
-          <a href="{{ route('order-create') }}" class="  btn btn-outline-primary btn-md">Create</a>
+          <h5>Product List</h5>
         </div>
         <div class="table-responsive text-nowrap">
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>Reference</th>
-                <th>Date</th>
-                <th>Total Amount</th>
-                <th>Supplier</th>
-                <th>Order By User</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Stock</th>
+                <th>Measurement</th>
                 <th>Status</th>
                 <th>Actions</th>
               </tr>
             </thead>
             <tbody class="table-border-bottom-0">
-              @foreach ($Orders as $order)
+              @foreach ($Items as $item)
               <tr>
-                <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong>{{$order->OrderReference}}</strong></td>
-                <td>{{$order->OrderDate}}</td>
+                <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong>{{$item->Name}}</strong></td>
+                <td>{{$item->Description}}</td>
                 <td>
-                  {{$order->TotalAmount}}
+                  {{$item->UnitInStock}}
                 </td>
-                <td>{{$order->SupplierName}}</td>
-                <td>{{$order->UserName}}</td>
-                <td> <span class="badge bg-label-primary me-1">{{$order->Status}}</span></td>
+                <td>{{$item->UnitOfMeasurement}}</td>
+                <td> <span class="badge bg-label-primary me-1">{{$item->Status}}</span></td>
                 <td>
                   <div class="dropdown">
                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
@@ -67,7 +64,7 @@ $menuTemplate = false;
             </tbody>
           </table>
           <div class="mt-4">
-            {!! $Orders->links('component.pagination') !!}
+            {!! $Items->links('component.pagination') !!}
           </div>
         </div>
       </div>
