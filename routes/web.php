@@ -28,7 +28,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/', $controller_path . '\home\Home@index')->name('home');
     Route::get('/user', $controller_path . '\user\User@index')->name('user');
     Route::get('/user/create', $controller_path . '\user\User@create')->name('user-create');
-    Route::post('/user/create', $controller_path . '\user\User@create_action')->name('user-create-action');
+    Route::post('/user/store', $controller_path . '\user\User@store')->name('user-store');
+    Route::get('/user/{id}/edit', $controller_path . '\user\User@edit')->name('user-edit');
+    Route::put('/user/{id}', $controller_path . '\user\User@update')->name('user-update');
+    Route::delete('/user/{id}/delete', $controller_path . '\user\User@delete')->name('user-delete');
 
     // Route::get('/role', $controller_path . '\user\User@create`')->name('role-tess');
     Route::get('/role', $controller_path . '\user\User@getRole')->name('user-role');
