@@ -9,6 +9,7 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async="async" src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
 <script>
+  console.log(window.jQuery)
   window.dataLayer = window.dataLayer || [];
 
   function gtag() {
