@@ -14,8 +14,7 @@ class User extends Controller
 
     $users =  UserDB::leftJoin('role', 'role.RoleId', '=', 'users.RoleId')
     ->select('users.*','role.Name')
-    ->get();
-// dd(  $users );
+    ->paginate(5);
     return view('content.user.user',compact('users'));
   }
 }
