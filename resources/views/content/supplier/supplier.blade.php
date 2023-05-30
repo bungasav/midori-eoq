@@ -24,7 +24,10 @@ $menuTemplate = false;
 
 <div class="row">
     <div class="card">
-        <h5 class="card-header">Supplier</h5>
+        <div class=" card-header d-flex justify-content-between">
+          <h5>Supplier</h5>
+          <a href="{{ route('supplier-create') }}" class="  btn btn-outline-primary btn-md">Create</a>
+        </div>
         <div class="table-responsive text-nowrap">
           <table class="table table-striped">
             <thead>
@@ -62,6 +65,9 @@ $menuTemplate = false;
 
             </tbody>
           </table>
+          <div class="mt-4">
+            {!! $Suppliers->links('component.pagination') !!}
+          </div>
         </div>
       </div>
   <!--/ Transactions -->

@@ -9,12 +9,13 @@ $menuList  = ($menuTemplate ? $menuData[0]->menuTemplate : $menuData[0]->menu)
 
   <!-- ! Hide app brand if navbar-full -->
   <div class="app-brand demo">
-    <a href="{{url('/')}}" class="app-brand-link">
+    <!-- <a href="{{url('/')}}" class="app-brand-link">
       <span class="app-brand-logo demo">
         @include('_partials.macros',["width"=>25,"withbg"=>'#696cff'])
       </span>
       <span class="app-brand-text demo menu-text fw-bold ms-2">{{config('variables.templateName')}}</span>
-    </a>
+    </a> -->
+    <img src="https://fibercreme.com/wp-content/uploads/2020/11/cendol-midori.jpg" style="width:100px"></img>
 
     <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-autod-block d-xl-none">
       <i class="bx bx-chevron-left bx-sm align-middle"></i>

@@ -9,27 +9,23 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
 
-class Supplier extends Model
+class EOQ extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
-    protected $table = 'supplier';
-    protected $primaryKey = 'SupplierId';
-    public $timestamps = false;
+    protected $table = 'view_eoq';
+    //protected $primaryKey = 'ItemName';
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
-        'SupplierId',
-        'Name',
-        'Address',
-        'PhoneNumber',
-        "BankName",
-        "AccountName",
-        "AccountNumber",
-        "Status",
-        "createdDate",
-        "CreatedBy"
+        'ItemName',
+        'ItemPrice',
+        'D',
+        'H',
+        "C",
+        "R",
+        "EOQ"
     ];
 }

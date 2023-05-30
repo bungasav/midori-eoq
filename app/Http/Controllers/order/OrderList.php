@@ -13,7 +13,7 @@ class OrderList extends Controller
     $Orders = OrderDB::leftJoin('supplier', 'supplier.SupplierId', '=', 'order.SupplierId')
     ->leftJoin('users', 'users.UserId', '=', 'order.UserId')
     ->select('order.*','supplier.Name as SupplierName', 'users.Name as UserName')
-    ->get();
+    ->paginate(10);
 
     return view('content.Order.Order',compact('Orders'));
   }

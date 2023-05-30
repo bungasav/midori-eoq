@@ -37,9 +37,22 @@ Route::middleware('auth')->group(function () {
     Route::get('/role', $controller_path . '\user\User@getRole')->name('user-role');
 
     Route::get('/supplier', $controller_path . '\supplier\Supplier@index')->name('supplier');
+    Route::get('/supplier/create', $controller_path . '\supplier\Supplier@create')->name('supplier-create');
+    Route::post('/supplier/create', $controller_path . '\supplier\Supplier@create_action')->name('supplier-create-action');
+
     Route::get('/item', $controller_path . '\item\Item@index')->name('item');
+    Route::get('/item/create', $controller_path . '\item\Item@create')->name('item-create');
+    Route::post('/item/create', $controller_path . '\item\Item@create_action')->name('item-create-action');
+
     Route::get('/order', $controller_path . '\order\OrderList@index')->name('order');
+    Route::get('/order/create', $controller_path . '\order\OrderList@create')->name('order-create');
+    Route::post('/order/create', $controller_path . '\order\OrderList@create_action')->name('order-create-action');
+
+    Route::get('/product', $controller_path . '\product\Product@index')->name('product');
+
     Route::get('/production', $controller_path . '\production\ProductionList@index')->name('production');
+    Route::get('/eoq', $controller_path . '\eoq\EOQ@index')->name('eoq');
+    Route::get('/rop', $controller_path . '\rop\ROP@index')->name('rop');
     Route::get('/template', $controller_path . '\dashboard\Analytics@index')->name('dashboard');
 });
 // Main Page Route

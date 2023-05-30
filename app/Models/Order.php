@@ -14,6 +14,7 @@ class Order extends Model
     use HasApiTokens, HasFactory, Notifiable;
     protected $table = 'order';
     protected $primaryKey = 'OrderId';
+    public $timestamps = false;
     /**
      * The attributes that are mass assignable.
      *

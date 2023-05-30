@@ -14,6 +14,7 @@ class Production extends Model
     use HasApiTokens, HasFactory, Notifiable;
     protected $table = 'production';
     protected $primaryKey = 'ProductionId';
+    public $timestamps = false;
     /**
      * The attributes that are mass assignable.
      *
