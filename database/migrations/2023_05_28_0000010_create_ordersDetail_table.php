@@ -18,6 +18,7 @@ return new class extends Migration {
             $table->bigInteger('ItemId',false,true);
             $table->integer('Quantity');
             $table->string('Status',100);
+            $table->float('BasePrice')->nullable();
 
             $table->foreign('OrderId')->references('OrderId')->on('order')->onDelete('cascade');
             $table->foreign('ItemId')->references('ItemId')->on('item')->onDelete('cascade');
