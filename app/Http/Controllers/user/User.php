@@ -17,6 +17,7 @@ class User extends Controller
   {
     $users = UserDB::leftJoin('role', 'role.RoleId', '=', 'users.RoleId')
       ->select('users.*', 'role.Name')
+      ->where('users.status', '=', 'ACTIVE')
       ->paginate(5);
     return view('content.user.user', compact('users'));
   }
@@ -27,7 +28,53 @@ class User extends Controller
     return view('content.user.create');
   }
 
-  public function create_action(Request $request)
+
+  public function edit($id)
+  {
+
+    $user = UserDB::find($id);
+
+    if ($user == null) {
+      Session::flash('error', 'User Not Found');
+      return redirect('user');
+    }
+
+    // dd($user -> toArray());
+    // die();
+    return view('content.user.edit', compact('user'));
+  }
+
+
+  public function update(Request $request, $userId)
+  {
+
+    try {
+      $request->validate([
+        'email' => 'required|email',
+        'name' => 'required',
+        'role' => 'required',
+        'phoneNumber' => 'required',
+      ]);
+      $user = UserDB::find($userId);
+
+      $user->EmailAddress = $request->email;
+      $user->RoleId = $request->role;
+      $user->Name = $request->name;
+      $user->PhoneNumber = $request->phoneNumber;
+      $user->save();
+
+      Session::flash('success', 'User Succefully Updated!');
+      return redirect()->route('user');
+    } catch (\Exception $e) {
+      return back()->withErrors([
+        'error' => $e->getMessage(),
+      ]);
+    }
+  }
+
+
+
+  public function store(Request $request)
   {
 
     // dd($request->toArray());
@@ -52,19 +99,37 @@ class User extends Controller
       $user->PhoneNumber = $request->phoneNumber;
       $user->PasswordHash = Hash::make($request->password);
       $user->CreatedDate = Carbon::now();
-  
-      $user->save();
-      Session::flash('success','User Succefully Added!'); 
 
+      $user->save();
+      Session::flash('success', 'User Succefully Added!');
       return redirect()->route('user');
-    
+
     } catch (\Exception $e) {
       return back()->withErrors([
-        'error' =>  $e->getMessage(),
+        'error' => $e->getMessage(),
       ]);
     }
 
   }
+
+
+  public function delete($userId)
+  {
+
+    try {
+      $user = UserDB::find($userId);
+
+      $user->status = "DEACTIVED";
+      $user->save();
+      Session::flash('success', 'User Succefully Deleted!');
+      return redirect()->route('user');
+    } catch (\Exception $e) {
+      return back()->withErrors([
+        'error' => $e->getMessage(),
+      ]);
+    }
+  }
+
 
   public function getRole()
   {
