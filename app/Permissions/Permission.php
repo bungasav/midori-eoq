@@ -86,14 +86,14 @@ class Permission
                 self::CAN_VIEW_ORDER,
                 self::CAN_CREATE_ORDER,
                 self::CAN_VIEW_EOQ,
-                self::CAN_VIEW_EOQ,
+                self::CAN_VIEW_ROP,
             ];
 
         // owner
         } else if ($roleId == 3) {
             return [
                 self::CAN_VIEW_EOQ,
-                self::CAN_VIEW_EOQ,
+                self::CAN_VIEW_ROP,
                 self::CAN_APPROVAL_VIEW,
                 self::CAN_APPROVAL_APPROVE,
 
