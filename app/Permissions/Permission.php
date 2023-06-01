@@ -20,23 +20,28 @@ class Permission
     public const CAN_EDIT_SUPPLIER = 'supplier-edit';
     public const CAN_UPDATE_SUPPLIER = 'supplier-update';
     public const CAN_DELETE_SUPPLIER = 'supplier-delete';
+    public const CAN_STORE_SUPPLIER = 'supplier-store';
 
 
     public const CAN_VIEW_ITEM = 'item';
     public const CAN_CREATE_ITEM = 'item-create';
     public const CAN_UPDATE_ITEM = 'item-edit';
     public const CAN_DELETE_ITEM = 'item-delete';
+    public const CAN_STORE_ITEM = 'item-store';
 
 
 
     public const CAN_VIEW_ORDER = 'order';
     public const CAN_CREATE_ORDER = 'order-create';
+    public const CAN_STORE_ORDER = 'order-store';
+    public const CAN_EDIT_ORDER = 'order-edit';
 
 
     public const CAN_VIEW_PRODUCT = 'product';
     public const CAN_CREATE_PRODUCT = 'product-create';
     public const CAN_UPDATE_PRODUCT = 'product-edit';
     public const CAN_DELETE_PRODUCT = 'product-delete';
+    public const CAN_STORE_PRODUCT = 'product-store';
 
 
     public const CAN_VIEW_PRODUCTION = 'production';
@@ -67,11 +72,13 @@ class Permission
                 self::CAN_STORE_USER,
                 self::CAN_VIEW_SUPPLIER,
                 self::CAN_CREATE_SUPPLIER,
+                self::CAN_STORE_SUPPLIER,
                 self::CAN_EDIT_SUPPLIER,
                 self::CAN_UPDATE_SUPPLIER,
                 self::CAN_DELETE_SUPPLIER,
                 self::CAN_VIEW_ITEM,
                 self::CAN_CREATE_ITEM,
+                self::CAN_STORE_ITEM,
                 self::CAN_UPDATE_ITEM,
                 self::CAN_DELETE_ITEM,
             ];
@@ -80,11 +87,14 @@ class Permission
             return [
                 self::CAN_VIEW_SUPPLIER,
                 self::CAN_CREATE_SUPPLIER,
+                self::CAN_STORE_SUPPLIER,
                 self::CAN_EDIT_SUPPLIER,
                 self::CAN_UPDATE_SUPPLIER,
                 self::CAN_DELETE_SUPPLIER,
                 self::CAN_VIEW_ORDER,
                 self::CAN_CREATE_ORDER,
+                self::CAN_EDIT_ORDER,
+                self::CAN_STORE_ORDER,
                 self::CAN_VIEW_EOQ,
                 self::CAN_VIEW_ROP,
             ];
@@ -96,7 +106,8 @@ class Permission
                 self::CAN_VIEW_ROP,
                 self::CAN_APPROVAL_VIEW,
                 self::CAN_APPROVAL_APPROVE,
-
+                self::CAN_EDIT_ORDER,
+                self::CAN_VIEW_ORDER,
             ];
 
         // marketing
@@ -109,6 +120,7 @@ class Permission
             return [
                 self::CAN_VIEW_PRODUCT,
                 self::CAN_CREATE_PRODUCT,
+                self::CAN_STORE_PRODUCT,
                 self::CAN_UPDATE_PRODUCT,
                 self::CAN_DELETE_PRODUCT,
                 self::CAN_VIEW_PRODUCTION,
