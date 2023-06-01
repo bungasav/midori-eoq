@@ -43,11 +43,11 @@ $menuTemplate = false;
               <tr>
                 <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong>{{$e->ItemName}}</strong></td>
                 <td>{{$e->ItemPrice}}</td>
-                <td>{{$e->ItemPrice}}</td>
-                <td>{{$e->ItemPrice}}</td>
-                <td>{{$e->ItemPrice}}</td>
-                <td>{{$e->ItemPrice}}</td>
-                <td>{{$e->ItemPrice}}</td>
+                <td>{{$e->D}}</td>
+                <td>{{$e->H}}</td>
+                <td>{{$e->C}}</td>
+                <td>{{$e->R}}</td>
+                <td>{{$e->EOQ}}</td>
               </tr>
               @endforeach
 

@@ -31,6 +31,9 @@ $menuTemplate = false;
               <tr>
                 <th>Item Name</th>
                 <th>Order Count</th>
+                <th>Waktu Tunggu</th>
+                <th>Safety Stock</th>
+                <th>ROP</th>
               </tr>
             </thead>
             <tbody class="table-border-bottom-0">
@@ -38,6 +41,9 @@ $menuTemplate = false;
               <tr>
                 <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong>{{$r->Name}}</strong></td>
                 <td>{{$e->OrderCount}}</td>
+                <td>{{$e->OrderCount}}</td>
+                <td>{{$e->safety_stock}}</td>
+                <td>{{$e->ROP}}</td>
               </tr>
               @endforeach
 
