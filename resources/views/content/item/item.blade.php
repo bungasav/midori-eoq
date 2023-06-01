@@ -59,6 +59,7 @@ $menuTemplate = false;
                         @csrf
                         {{ method_field('DELETE') }}
                         <button type="submit" class="dropdown-item">Delete</button>
+                    </form>
                     </div>
                   </div>
                 </td>
