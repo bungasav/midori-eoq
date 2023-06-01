@@ -26,6 +26,7 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     $controller_path = 'App\Http\Controllers';
     Route::get('/', $controller_path . '\home\Home@index')->name('home');
+    //USER
     Route::get('/user', $controller_path . '\user\User@index')->name('user');
     Route::get('/user/create', $controller_path . '\user\User@create')->name('user-create');
     Route::post('/user/store', $controller_path . '\user\User@store')->name('user-store');
@@ -36,19 +37,34 @@ Route::middleware('auth')->group(function () {
     // Route::get('/role', $controller_path . '\user\User@create`')->name('role-tess');
     Route::get('/role', $controller_path . '\user\User@getRole')->name('user-role');
 
+    //SUPPLIER
     Route::get('/supplier', $controller_path . '\supplier\Supplier@index')->name('supplier');
     Route::get('/supplier/create', $controller_path . '\supplier\Supplier@create')->name('supplier-create');
-    Route::post('/supplier/create', $controller_path . '\supplier\Supplier@create_action')->name('supplier-create-action');
+    Route::post('/supplier/store', $controller_path . '\supplier\Supplier@store')->name('supplier-store');
+    Route::get('/supplier/{id}/edit', $controller_path . '\supplier\Supplier@edit')->name('supplier-edit');
+    Route::put('/supplier/{id}', $controller_path . '\supplier\Supplier@update')->name('supplier-update');
+    Route::delete('/supplier/{id}/delete', $controller_path . '\supplier\Supplier@delete')->name('supplier-delete');
 
+    //ITEM
     Route::get('/item', $controller_path . '\item\Item@index')->name('item');
     Route::get('/item/create', $controller_path . '\item\Item@create')->name('item-create');
-    Route::post('/item/create', $controller_path . '\item\Item@create_action')->name('item-create-action');
+    Route::post('/item/store', $controller_path . '\item\Item@store')->name('item-store');
+    Route::get('/item/{id}/edit', $controller_path . '\item\Item@edit')->name('item-edit');
+    Route::put('/item/{id}', $controller_path . '\item\Item@update')->name('item-update');
+    Route::delete('/item/{id}/delete', $controller_path . '\item\Item@delete')->name('item-delete');
 
+    //ORDER
     Route::get('/order', $controller_path . '\order\OrderList@index')->name('order');
     Route::get('/order/create', $controller_path . '\order\OrderList@create')->name('order-create');
     Route::post('/order/store', $controller_path . '\order\OrderList@store')->name('order-store');
 
+    //PRODUCT
     Route::get('/product', $controller_path . '\product\Product@index')->name('product');
+    Route::get('/product/create', $controller_path . '\product\Product@create')->name('product-create');
+    Route::post('/product/store', $controller_path . '\product\Product@store')->name('product-store');
+    Route::get('/product/{id}/edit', $controller_path . '\product\Product@edit')->name('product-edit');
+    Route::put('/product/{id}', $controller_path . '\product\Product@update')->name('product-update');
+    Route::delete('/product/{id}/delete', $controller_path . '\product\Product@delete')->name('product-delete');
 
     Route::get('/production', $controller_path . '\production\ProductionList@index')->name('production');
     Route::get('/eoq', $controller_path . '\eoq\EOQ@index')->name('eoq');

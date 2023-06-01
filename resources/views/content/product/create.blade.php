@@ -26,16 +26,16 @@ $menuTemplate = false;
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="/supplier">Supplier</a>
+            <a href="/product">Product</a>
           </li>
           <li class="breadcrumb-item active">Create</li>
         </ol>
       </nav>
     <div class="card">
         <div class="mb-4">
-            <h5 class="card-header">Create Supplier</h5>
+            <h5 class="card-header">Create Product</h5>
             <div class="card-body">
-                <form id="formCreateSupplier" class="mb-3" action="{{url('/supplier/store')}}" method="POST">
+                <form id="formCreateitem" class="mb-3" action="{{url('/product/store')}}" method="POST">
                   @csrf
 
                   @if($errors->any())
@@ -46,30 +46,21 @@ $menuTemplate = false;
                   @endforeach
                   @endif
 
-              
               <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" name="name" placeholder="john doe" />
+                <input type="text" class="form-control" name="name" placeholder="Jelly" />
               </div>
               <div class="mb-3">
-                <label for="Address" class="form-label">Address</label>
-                <input type="tel" class="form-control" name="Address" placeholder="Jalan Soekarno Hatta" />
+                <label for="description" class="form-label">Description</label>
+                <input type="tel" class="form-control" name="description" placeholder="Ukuran sedang kemasan baru, expired 2024" />
               </div>
               <div class="mb-3">
-                <label for="phoneNumber" class="form-label">PhoneNumber</label>
-                <input type="tel" class="form-control" name="phoneNumber" placeholder="0810128312" />
+                <label for="stock" class="form-label">Stock</label>
+                <input type="tel" class="form-control" name="stock" placeholder="10"/>
               </div>
               <div class="mb-3">
-                <label for="BankName" class="form-label">Bank Name</label>
-                <input type="tel" class="form-control" name="BankName" placeholder="BCA" />
-              </div>
-              <div class="mb-3">
-                <label for="AccountNumber" class="form-label">Bank Account Number</label>
-                <input type="tel" class="form-control" name="AccountNumber" placeholder="991111" />
-              </div>
-              <div class="mb-3">
-                <label for="AccountName" class="form-label">Bank Account Name</label>
-                <input type="tel" class="form-control" name="AccountName" placeholder="john doe" />
+                <label for="measurement" class="form-label">Measurement</label>
+                <input type="tel" class="form-control" name="measurement" placeholder="Pcs" />
               </div>
               <div class="mb-3">
                 <button class="btn btn-primary d-grid w-100" type="submit">Submit</button>

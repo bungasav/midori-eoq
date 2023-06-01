@@ -28,12 +28,12 @@ $menuTemplate = false;
           <li class="breadcrumb-item">
             <a href="/user">User</a>
           </li>
-          <li class="breadcrumb-item active">Create</li>
+          <li class="breadcrumb-item active">Update</li>
         </ol>
       </nav>
     <div class="card">
         <div class="mb-4">
-            <h5 class="card-header">Create User</h5>
+            <h5 class="card-header">Update User</h5>
             <div class="card-body">
                 <form id="formCreateUser" class="mb-3" action="{{url('/user/'.(string)$user->UserId)}}" method="post">
                   @csrf

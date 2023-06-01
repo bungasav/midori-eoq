@@ -35,7 +35,7 @@ $menuTemplate = false;
         <div class="mb-4">
             <h5 class="card-header">Create Item</h5>
             <div class="card-body">
-                <form id="formCreateitem" class="mb-3" action="{{url('/item/create')}}" method="POST">
+                <form id="formCreateitem" class="mb-3" action="{{url('/item/store')}}" method="POST">
                   @csrf
 
                   @if($errors->any())
