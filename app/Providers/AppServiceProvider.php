@@ -35,7 +35,10 @@ class AppServiceProvider extends ServiceProvider
 
       $user = Auth::user();
       $permission = new Permission;
-      $permissionList = $permission->getPermissionByRoleId($user->RoleId);
+      $permissionList= [];
+      if( Auth::check()){
+        $permissionList = $permission->getPermissionByRoleId($user->RoleId);
+      }
 
       $view->with('user', $user)->with('permissionList', $permissionList);
     });

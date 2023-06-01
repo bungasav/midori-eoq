@@ -86,6 +86,7 @@ Route::middleware(['auth'])->group(function () {
     $controller_path = 'App\Http\Controllers';
     //USER
     Route::get('/', $controller_path . '\home\Home@index')->name('home');
+    Route::get('/role', $controller_path . '\user\User@getRole')->name('user-role');
 
 });
 
