@@ -16,7 +16,7 @@ class Item extends Controller
   public function index()
   {
     $Items = ItemDB::leftJoin('supplier', 'supplier.SupplierId', '=', 'item.SupplierId')
-    ->where('type', '=', 'material')
+    ->where([['type', '=', 'material'], ['item.status', '=', 'ACTIVE']])
     ->select('item.*','supplier.Name as SupplierName')
     ->paginate(10);
 
@@ -28,7 +28,50 @@ class Item extends Controller
     return view('content.item.create');
   }
 
-  public function create_action(Request $request)
+  public function edit($id)
+  {
+
+    $item = ItemDB::find($id);
+
+    if ($item == null) {
+      Session::flash('error', 'Item Not Found');
+      return redirect('item');
+    }
+
+    // dd($user -> toArray());
+    // die();
+    return view('content.item.edit', compact('item'));
+  }
+
+
+  public function update(Request $request, $itemId)
+  {
+
+    try {
+      $request->validate([
+        'name' => 'required',
+        'measurement' => 'required',
+      ]);
+     
+      $item = ItemDB::find($itemId);
+      //dd($item->toArray());
+      $item->Name = $request->name;
+      $item->Description = $request->description;
+      $item->UnitOfMeasurement = $request->measurement;
+      $item->save();
+
+      Session::flash('success', 'Item Succefully Updated!');
+      return redirect()->route('item');
+    } catch (\Exception $e) {
+      return back()->withErrors([
+        'error' => $e->getMessage(),
+      ]);
+    }
+  }
+
+
+
+  public function store(Request $request)
   {
 
     $request->validate([
@@ -62,5 +105,22 @@ class Item extends Controller
       ]);
     }
 
+  }
+
+  public function delete($itemId)
+  {
+
+    try {
+      $item = ItemDB::find($itemId);
+
+      $item->status = "DEACTIVED";
+      $item->save();
+      Session::flash('success', 'Item Succefully Deleted!');
+      return redirect()->route('item');
+    } catch (\Exception $e) {
+      return back()->withErrors([
+        'error' => $e->getMessage(),
+      ]);
+    }
   }
 }
