@@ -25,6 +25,7 @@ class OrderDetail extends Model
         'OrderId',
         'ItemId',
         'Quantity',
-        "Status"
+        "Status",
+        'BasePrice'
     ];
 }

@@ -57,6 +57,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/order', $controller_path . '\order\OrderList@index')->name('order');
     Route::get('/order/create', $controller_path . '\order\OrderList@create')->name('order-create');
     Route::post('/order/store', $controller_path . '\order\OrderList@store')->name('order-store');
+    Route::get('/order/{id}/edit', $controller_path . '\order\OrderList@edit')->name('order-edit');
 
     //PRODUCT
     Route::get('/product', $controller_path . '\product\Product@index')->name('product');
@@ -67,7 +68,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/product/{id}/delete', $controller_path . '\product\Product@delete')->name('product-delete');
 
     //ORDER APPROVAL
-    Route::get('/approval', $controller_path . '\order\Approval@index')->name('order');
+    Route::get('/approval', $controller_path . '\order\Approval@index')->name('approval');
+    Route::post('/approval/{id}/approve', $controller_path . '\order\Approval@approve')->name('approval-approve');
+    Route::post('/approval/{id}/rejected', $controller_path . '\order\Approval@rejected')->name('approval-rejected');
 
     Route::get('/production', $controller_path . '\production\ProductionList@index')->name('production');
     Route::get('/eoq', $controller_path . '\eoq\EOQ@index')->name('eoq');

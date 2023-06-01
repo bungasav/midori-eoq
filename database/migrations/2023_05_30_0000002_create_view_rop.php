@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use DB;
 
 return new class extends Migration {
     /**
@@ -98,6 +99,10 @@ return new class extends Migration {
         item i 
         JOIN orderdetail od on od.ItemId = i.ItemId 
         LEFT JOIN productiondetail pd on pd.ItemId = i.ItemId 
+        LEFT JOIN order o on od.OrderId = o.OrderId 
+        where i.Type = 'material'
+        and i.status = 'ACTIVE' 
+        and o.Status = 'APPROVED'
       GROUP BY 
         i.Name");
     }

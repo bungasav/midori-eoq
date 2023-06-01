@@ -43,22 +43,42 @@ $menuTemplate = false;
             <tbody class="table-border-bottom-0">
               @foreach ($Orders as $order)
               <tr>
-                <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong>{{$order->OrderReference}}</strong></td>
+                <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong>
+                <a href="{{url('/order/'.(string)$order->OrderId).'/edit'}}">{{$order->OrderReference}}</a>
+              </strong></td>
                 <td>{{$order->OrderDate}}</td>
                 <td>
                   {{$order->TotalAmount}}
                 </td>
                 <td>{{$order->SupplierName}}</td>
                 <td>{{$order->UserName}}</td>
-                <td> <span class="badge bg-label-primary me-1">{{$order->Status}}</span></td>
+                <td> 
+                @if($order->Status =='APPROVED')
+                  <span class="badge bg-label-primary me-1">{{$order->Status}}</span>
+                  @elseif($order->Status =='REJECTED')
+                  <span class="badge bg-label-danger me-1">{{$order->Status}}</span>
+                  @else
+                  <span class="badge bg-label-warning me-1">{{$order->Status}}</span>
+                @endif
+                </td>
                 <td>
-                  <div class="dropdown">
-                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
-                    <div class="dropdown-menu">
-                      <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> APPROVE</a>
-                      <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> REJECT</a>
+                  @if($order->Status =='PENDING')
+                    <div class="dropdown">
+                      <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
+                      <div class="dropdown-menu">
+                        <form onsubmit="return confirm('Apakah Anda Yakin Approve Order ?');" action="{{url('/approval/'.(string)$order->OrderId).'/approve'}}" method="post">
+                          @csrf
+                          {{ method_field('POST') }}
+                          <button type="submit" class="dropdown-item"><i class="bx bx-check me-1"></i>Approve</button>
+                          </form>
+                        <form onsubmit="return confirm('Apakah Anda Yakin Reject Order ?');" action="{{url('/approval/'.(string)$order->OrderId).'/rejected'}}" method="post">
+                          @csrf
+                          {{ method_field('POST') }}
+                          <button type="submit" class="dropdown-item"><i class="bx bx-x-circle me-1"></i>Reject</button>
+                          </form>
+                      </div>
                     </div>
-                  </div>
+                  @endif
                 </td>
               </tr>
               @endforeach
