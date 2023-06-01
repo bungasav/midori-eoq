@@ -54,8 +54,8 @@ class Permission
 
 
     public const CAN_APPROVAL_VIEW = 'approval';
-    public const CAN_APPROVAL_REJECT = 'approval-approve';
-    public const CAN_APPROVAL_APPROVE = 'approval-rejected';
+    public const CAN_APPROVAL_REJECT = 'approval-rejected';
+    public const CAN_APPROVAL_APPROVE = 'approval-approve';
 
 
     public function getPermissionByRoleId($roleId)
@@ -106,8 +106,8 @@ class Permission
                 self::CAN_VIEW_ROP,
                 self::CAN_APPROVAL_VIEW,
                 self::CAN_APPROVAL_APPROVE,
+                self::CAN_APPROVAL_REJECT,
                 self::CAN_EDIT_ORDER,
-                self::CAN_VIEW_ORDER,
             ];
 
         // marketing
