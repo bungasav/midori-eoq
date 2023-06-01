@@ -33,7 +33,6 @@ class User extends Controller
   {
 
     $user = UserDB::find($id);
-
     if ($user == null) {
       Session::flash('error', 'User Not Found');
       return redirect('user');
@@ -138,4 +137,6 @@ class User extends Controller
       $role
     );
   }
+
+
 }

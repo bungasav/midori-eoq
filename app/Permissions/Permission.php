@@ -46,7 +46,7 @@ class Permission
     public const CAN_VIEW_ROP = 'rop';
 
 
-    public const CAN_APPROVAL_VIEW = 'order-create';
+    public const CAN_APPROVAL_VIEW = 'approval';
     public const CAN_APPROVAL_REJECT = 'approval-approve';
     public const CAN_APPROVAL_APPROVE = 'approval-rejected';
 
