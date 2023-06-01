@@ -25,16 +25,16 @@ $menuTemplate = false;
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="/order">Order</a>
+            <a href="/production">production</a>
           </li>
           <li class="breadcrumb-item active">Create</li>
         </ol>
       </nav>
     <div class="card">
         <div class="mb-4">
-            <h5 class="card-header">Create Order</h5>
+            <h5 class="card-header">Create Production</h5>
             <div class="card-body">
-                <form id="formCreateOrder" class="mb-3" action="{{url('/order/store')}}" method="POST">
+                <form id="formCreateOrder" class="mb-3" action="{{url('/production/store')}}" method="POST">
                   @csrf
 
                   @if($errors->any())
@@ -44,15 +44,6 @@ $menuTemplate = false;
                   </div>
                   @endforeach
                   @endif
-
-              <div class="mb-3">
-                    <label for="role" class="form-label">Supplier</label>
-                    <select id="supllierOption " name="supplier" class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
-                      @foreach($suppliers as $suplier)
-                        <option value="{{$suplier->SupplierId}}">{{$suplier->Name}}</option>
-                      @endforeach
-                    </select>
-                </div>
 
                 <div class="mb-3">
                   <label for="role" class="form-label">Product</label>
@@ -71,7 +62,6 @@ $menuTemplate = false;
                     <tr>
                       <th>Product</th>
                       <th>Jumlah</th>
-                      <th>Harga</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -116,11 +106,6 @@ $menuTemplate = false;
           <div class="">
             <input type="number" class="form-control" name="item[${index}][quantity]" value="${product.quantity}" required onchange="onChangeTableProduct(this,${product.ItemId},'quantity')" />
           </div>
-        </td>  
-        <td> 
-          <div class="">
-            <input type="number" class="form-control" name="item[${index}][basePrice]" value="${product.basePrice}"  required  onchange="onChangeTableProduct(this,${product.ItemId},'basePrice')" />
-          </div>  
         </td>  
         <td> <i class="bx bx-trash text-danger mb-2" onClick="deleteProductItem(${product.ItemId})"></i> </td>  
       </tr>

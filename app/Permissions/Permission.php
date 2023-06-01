@@ -36,7 +36,9 @@ class Permission
 
 
     public const CAN_VIEW_PRODUCTION = 'production';
-    public const CAN_CREATE_PRODUCTION = 'production';
+    public const CAN_CREATE_PRODUCTION = 'production-create';
+    public const CAN_STORE_PRODUCTION = 'production-store';
+    public const CAN_EDIT_PRODUCTION = 'production-edit';
 
     public const CAN_VIEW_EOQ = 'eoq';
     public const CAN_VIEW_ROP = 'rop';
@@ -104,6 +106,10 @@ class Permission
                 self::CAN_CREATE_PRODUCT,
                 self::CAN_UPDATE_PRODUCT,
                 self::CAN_DELETE_PRODUCT,
+                self::CAN_VIEW_PRODUCTION,
+                self::CAN_CREATE_PRODUCTION,
+                self::CAN_EDIT_PRODUCTION,
+                self::CAN_STORE_PRODUCTION,
             ];
         }else {
             return [];
