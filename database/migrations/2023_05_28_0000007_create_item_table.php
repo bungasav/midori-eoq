@@ -20,6 +20,7 @@ return new class extends Migration {
             $table->string('Description',500);
             $table->integer('UnitInStock');
             $table->string('UnitOfMeasurement',100);
+            $table->string('Type',100);
             $table->string('Status',100);
             $table->dateTime('CreatedDate');
             $table->foreign('SupplierId')->references('SupplierId')->on('supplier')->onDelete('cascade');
