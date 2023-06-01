@@ -28,6 +28,7 @@ class Permission
     public const CAN_VIEW_ORDER = 'order';
     public const CAN_CREATE_ORDER = 'order-create';
 
+
     public const CAN_VIEW_PRODUCT = 'product';
     public const CAN_CREATE_PRODUCT = 'product-create';
     public const CAN_UPDATE_PRODUCT = 'product-edit';
@@ -41,11 +42,15 @@ class Permission
     public const CAN_VIEW_ROP = 'rop';
 
 
+    public const CAN_APPROVAL_VIEW = 'order-create';
+    public const CAN_APPROVAL_REJECT = 'approval-approve';
+    public const CAN_APPROVAL_APPROVE = 'approval-rejected';
 
 
     public function getPermissionByRoleId($roleId)
     {
 
+        //admin
         if ($roleId === 1) {
             return [
                 self::CAN_VIEW_USER,
@@ -63,6 +68,7 @@ class Permission
                 self::CAN_UPDATE_ITEM,
                 self::CAN_DELETE_ITEM,
             ];
+        // Gudang
         } else if ($roleId == 2) {
             return [
                 self::CAN_VIEW_SUPPLIER,
@@ -75,15 +81,23 @@ class Permission
                 self::CAN_VIEW_EOQ,
                 self::CAN_VIEW_EOQ,
             ];
+
+        // owner
         } else if ($roleId == 3) {
             return [
                 self::CAN_VIEW_EOQ,
                 self::CAN_VIEW_EOQ,
+                self::CAN_APPROVAL_VIEW,
+                self::CAN_APPROVAL_APPROVE,
+
             ];
+
+        // marketing
         } else if ($roleId == 4) {
             return [
                 self::CAN_VIEW_PRODUCT,
             ];
+        //production
         } else if ($roleId == 5) {
             return [
                 self::CAN_VIEW_PRODUCT,
@@ -91,6 +105,8 @@ class Permission
                 self::CAN_UPDATE_PRODUCT,
                 self::CAN_DELETE_PRODUCT,
             ];
+        }else {
+            return [];
         }
 
     }

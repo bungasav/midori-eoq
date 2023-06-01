@@ -74,7 +74,6 @@ Route::middleware(['auth','permissions'])->group(function () {
     Route::get('/production', $controller_path . '\production\ProductionList@index')->name('production');
     Route::get('/eoq', $controller_path . '\eoq\EOQ@index')->name('eoq');
     Route::get('/rop', $controller_path . '\rop\ROP@index')->name('rop');
-    Route::get('/template', $controller_path . '\dashboard\Analytics@index')->name('dashboard');
 });
 
 Route::middleware(['auth'])->group(function () {
