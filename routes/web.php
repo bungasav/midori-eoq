@@ -46,7 +46,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/order', $controller_path . '\order\OrderList@index')->name('order');
     Route::get('/order/create', $controller_path . '\order\OrderList@create')->name('order-create');
-    Route::post('/order/create', $controller_path . '\order\OrderList@create_action')->name('order-create-action');
+    Route::post('/order/store', $controller_path . '\order\OrderList@store')->name('order-store');
 
     Route::get('/product', $controller_path . '\product\Product@index')->name('product');
 
