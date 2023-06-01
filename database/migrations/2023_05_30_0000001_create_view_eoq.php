@@ -43,7 +43,7 @@ return new class extends Migration {
             from 
             item i 
             LEFT JOIN orderdetail od on od.ItemId = i.ItemId 
-            LEFT JOIN order o on od.OrderId = o.OrderId 
+            LEFT JOIN `order` o on od.OrderId = o.OrderId 
             where i.Type = 'material'
             and i.status = 'ACTIVE' 
             and o.Status = 'APPROVED'

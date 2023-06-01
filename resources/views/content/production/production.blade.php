@@ -36,25 +36,16 @@ $menuTemplate = false;
                 <th>Date</th>
                 <th>Production By User</th>
                 <th>Status</th>
-                <th>Actions</th>
               </tr>
             </thead>
             <tbody class="table-border-bottom-0">
               @foreach ($Productions as $production)
               <tr>
-                <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong>{{$production->Reference}}</strong></td>
+                <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong>
+                <a href="{{url('/production/'.(string)$production->ProductionId).'/edit'}}">{{$production->Reference}}</a></strong></td>
                 <td>{{$production->CreatedDate}}</td>
-                <td>{{$order->UserName}}</td>
-                <td> <span class="badge bg-label-primary me-1">{{$order->Status}}</span></td>
-                <td>
-                  <div class="dropdown">
-                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
-                    <div class="dropdown-menu">
-                      <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a>
-                      <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
-                    </div>
-                  </div>
-                </td>
+                <td>{{$production->UserName}}</td>
+                <td> <span class="badge bg-label-primary me-1">{{$production->Status}}</span></td>
               </tr>
               @endforeach
 
