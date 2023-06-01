@@ -1,5 +1,5 @@
 @php
-$isNavbar = false;
+ ;
 $menuTemplate = false;
 @endphp
 

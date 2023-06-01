@@ -23,9 +23,8 @@ Route::middleware('guest')->group(function () {
     Route::post('/auth/login', $controller_path . '\authentications\LoginBasic@submitLogin')->name('login-action');
 });
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth','permissions'])->group(function () {
     $controller_path = 'App\Http\Controllers';
-    Route::get('/', $controller_path . '\home\Home@index')->name('home');
     //USER
     Route::get('/user', $controller_path . '\user\User@index')->name('user');
     Route::get('/user/create', $controller_path . '\user\User@create')->name('user-create');
@@ -81,8 +80,16 @@ Route::middleware('auth')->group(function () {
     //OTHER
     Route::get('/eoq', $controller_path . '\eoq\EOQ@index')->name('eoq');
     Route::get('/rop', $controller_path . '\rop\ROP@index')->name('rop');
-    Route::get('/template', $controller_path . '\dashboard\Analytics@index')->name('dashboard');
 });
+
+Route::middleware(['auth'])->group(function () {
+    $controller_path = 'App\Http\Controllers';
+    //USER
+    Route::get('/', $controller_path . '\home\Home@index')->name('home');
+
+});
+
+
 // Main Page Route
 // Route::get('/', $controller_path . '\dashboard\Analytics@index')->name('dashboard');
 

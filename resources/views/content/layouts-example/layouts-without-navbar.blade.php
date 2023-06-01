@@ -1,5 +1,5 @@
 @php
-$isNavbar = false;
+ ;
 @endphp
 
 @extends('layouts/contentNavbarLayout')
