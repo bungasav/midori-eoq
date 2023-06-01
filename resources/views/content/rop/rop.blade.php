@@ -40,10 +40,10 @@ $menuTemplate = false;
               @foreach ($ROP as $r)
               <tr>
                 <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong>{{$r->Name}}</strong></td>
-                <td>{{$e->OrderCount}}</td>
-                <td>{{$e->OrderCount}}</td>
-                <td>{{$e->safety_stock}}</td>
-                <td>{{$e->ROP}}</td>
+                <td>{{$r->OrderCount}}</td>
+                <td>{{$r->OrderCount}}</td>
+                <td>{{$r->safety_stock}}</td>
+                <td>{{$r->ROP}}</td>
               </tr>
               @endforeach
 
