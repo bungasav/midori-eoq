@@ -351,6 +351,12 @@
       "icon": "menu-icon tf-icons bx bx-barcode",
       "slug": "product",
       "url": "/product"
+    },
+    {
+      "name": "Order Approval",
+      "icon": "menu-icon tf-icons bx bx-calendar-check",
+      "slug": "approval",
+      "url": "/approval"
     }
   ]
 }

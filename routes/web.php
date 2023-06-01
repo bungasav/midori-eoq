@@ -66,6 +66,9 @@ Route::middleware('auth')->group(function () {
     Route::put('/product/{id}', $controller_path . '\product\Product@update')->name('product-update');
     Route::delete('/product/{id}/delete', $controller_path . '\product\Product@delete')->name('product-delete');
 
+    //ORDER APPROVAL
+    Route::get('/approval', $controller_path . '\order\Approval@index')->name('order');
+
     Route::get('/production', $controller_path . '\production\ProductionList@index')->name('production');
     Route::get('/eoq', $controller_path . '\eoq\EOQ@index')->name('eoq');
     Route::get('/rop', $controller_path . '\rop\ROP@index')->name('rop');
