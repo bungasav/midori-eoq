@@ -2,10 +2,14 @@
 namespace App\Permissions;
 
 class Permission
-{    public const CAN_VIEW_HOME = 'home';
+{    
+    public const CAN_VIEW_HOME = 'home';
+    public const CAN_VIEW_ROLE = 'item-delete';
 
     public const CAN_VIEW_USER = 'user';
     public const CAN_CREATE_USER = 'user-create';
+    public const CAN_STORE_USER = 'user-store';
+
     public const CAN_EDIT_USER = 'user-edit';
     public const CAN_UPDATE_USER = 'user-update';
     public const CAN_DELETE_USER = 'user-delete';
@@ -58,6 +62,7 @@ class Permission
                 self::CAN_EDIT_USER,
                 self::CAN_UPDATE_USER,
                 self::CAN_DELETE_USER,
+                self::CAN_STORE_USER,
                 self::CAN_VIEW_SUPPLIER,
                 self::CAN_CREATE_SUPPLIER,
                 self::CAN_EDIT_SUPPLIER,

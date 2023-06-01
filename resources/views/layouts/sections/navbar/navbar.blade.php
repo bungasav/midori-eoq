@@ -72,7 +72,7 @@ $navbarDetached = ($navbarDetached ?? '');
                     <div class="flex-grow-1">
                       @if(auth()->check())
                       <span class="fw-semibold d-block">{{$user->Name}}</span>
-                      <small class="text-muted">Admin</small>
+                      <small class="text-muted">{{$user->RoleName}}</small>
                      @endif
                     </div>
                   </div>
