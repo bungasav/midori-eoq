@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\User;
 use App\Permissions\Permission;
 
 use Illuminate\Support\ServiceProvider;
@@ -34,13 +35,19 @@ class AppServiceProvider extends ServiceProvider
     view()->composer('*', function ($view) {
 
       $user = Auth::user();
-      $permission = new Permission;
-      $permissionList= [];
-      if( Auth::check()){
+      if (Auth::check()) {
+        $userData = User::leftJoin('role', 'role.RoleId', '=', 'users.RoleId')
+          ->select('users.*', 'role.Name as RoleName')
+          ->where('users.UserId', '=', $user->UserId)
+          ->first();
+          
+        $permission = new Permission;
         $permissionList = $permission->getPermissionByRoleId($user->RoleId);
-      }
+        $view->with('authData', $userData)->with('permissionList', $permissionList);
 
-      $view->with('user', $user)->with('permissionList', $permissionList);
+      } else {
+        $view->with('authData', $user)->with('permissionList', []);
+      }
     });
   }
 }

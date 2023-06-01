@@ -87,12 +87,13 @@ Route::middleware(['auth'])->group(function () {
     //USER
     Route::get('/', $controller_path . '\home\Home@index')->name('home');
     Route::get('/role', $controller_path . '\user\User@getRole')->name('user-role');
+    Route::get('/auth/logout', $controller_path . '\authentications\LoginBasic@logout')->name('user-logout');
 
 });
 
 
 // Main Page Route
-// Route::get('/', $controller_path . '\dashboard\Analytics@index')->name('dashboard');
+Route::get('/template', $controller_path . '\dashboard\Analytics@index')->name('dashboard');
 
 // Route::get('/auth/login', $controller_path . '\authentications\LoginBasic@index')->name('login');
 // Route::post('/auth/login', $controller_path . '\authentications\LoginBasic@submitLogin')->name('login-action');

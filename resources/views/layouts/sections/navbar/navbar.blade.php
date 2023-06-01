@@ -39,7 +39,7 @@ $navbarDetached = ($navbarDetached ?? '');
         <div class="navbar-nav align-items-center">
           <div >
             @if(auth()->check())
-            <h5 class="mb-0">Haloo {{$user->Name}}</h5>
+            <h5 class="mb-0">Haloo {{$authData->Name}}</h5>
             <!-- User is logged in -->
            @endif
     
@@ -71,15 +71,15 @@ $navbarDetached = ($navbarDetached ?? '');
                     </div>
                     <div class="flex-grow-1">
                       @if(auth()->check())
-                      <span class="fw-semibold d-block">{{$user->Name}}</span>
-                      <small class="text-muted">Admin</small>
+                      <span class="fw-semibold d-block">{{$authData->Name}}</span>
+                      <small class="text-muted">{{$authData->RoleName}}</small>
                      @endif
                     </div>
                   </div>
                 </a>
               </li>
               <li>
-                <a class="dropdown-item" href="javascript:void(0);">
+                <a class="dropdown-item" href="{{url('/auth/logout')}}">
                   <i class='bx bx-power-off me-2'></i>
                   <span class="align-middle">Log Out</span>
                 </a>

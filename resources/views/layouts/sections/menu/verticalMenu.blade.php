@@ -31,6 +31,7 @@ $menuList  = ($menuTemplate ? $menuData[0]->menuTemplate : $menuData[0]->menu)
 
     {{-- adding active and open class if child is active --}}
 
+    @if(!$menuTemplate && in_array($menu->slug,$permissionList))
     {{-- menu headers --}}
     @if (isset($menu->menuHeader))
     <li class="menu-header small text-uppercase">
@@ -78,6 +79,7 @@ $menuList  = ($menuTemplate ? $menuData[0]->menuTemplate : $menuData[0]->menu)
       @include('layouts.sections.menu.submenu',['menu' => $menu->submenu])
       @endisset
     </li>
+    @endif
     @endif
     @endforeach
   </ul>
