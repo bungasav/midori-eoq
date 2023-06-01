@@ -71,7 +71,13 @@ Route::middleware(['auth','permissions'])->group(function () {
     Route::post('/approval/{id}/approve', $controller_path . '\order\Approval@approve')->name('approval-approve');
     Route::post('/approval/{id}/rejected', $controller_path . '\order\Approval@rejected')->name('approval-rejected');
 
+    //PRODUCTION
     Route::get('/production', $controller_path . '\production\ProductionList@index')->name('production');
+    Route::get('/production/create', $controller_path . '\production\ProductionList@create')->name('production-create');
+    Route::post('/production/store', $controller_path . '\production\ProductionList@store')->name('production-store');
+    Route::get('/production/{id}/edit', $controller_path . '\production\ProductionList@edit')->name('production-edit');
+
+    //OTHER
     Route::get('/eoq', $controller_path . '\eoq\EOQ@index')->name('eoq');
     Route::get('/rop', $controller_path . '\rop\ROP@index')->name('rop');
 });

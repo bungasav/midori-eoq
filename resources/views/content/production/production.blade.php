@@ -24,7 +24,10 @@ $menuTemplate = false;
 
 <div class="row">
     <div class="card">
-        <h5 class="card-header">Production List</h5>
+      <div class=" card-header d-flex justify-content-between">
+          <h5>Production List</h5>
+          <a href="{{ route('production-create') }}" class="  btn btn-outline-primary btn-md">Create</a>
+        </div>
         <div class="table-responsive text-nowrap">
           <table class="table table-striped">
             <thead>
