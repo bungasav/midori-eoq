@@ -41,7 +41,7 @@ $menuTemplate = false;
               <tr>
                 <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong>{{$r->Name}}</strong></td>
                 <td>{{$r->OrderCount}}</td>
-                <td>{{$r->OrderCount}}</td>
+                <td>3</td>
                 <td>{{$r->safety_stock}}</td>
                 <td>{{$r->ROP}}</td>
               </tr>
