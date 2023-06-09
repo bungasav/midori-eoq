@@ -26,7 +26,9 @@ $menuTemplate = false;
     <div class="card">
         <div class=" card-header d-flex justify-content-between">
           <h5>Product List</h5>
-          <a href="{{ route('product-create') }}" class="  btn btn-outline-primary btn-md">Create</a>
+          @if($authData->RoleId != 4)
+            <a href="{{ route('product-create') }}" class="  btn btn-outline-primary btn-md">Create</a>
+          @endif
         </div>
         <div class="table-responsive text-nowrap">
           <table class="table table-striped">
@@ -37,7 +39,9 @@ $menuTemplate = false;
                 <th>Stock</th>
                 <th>Measurement</th>
                 <th>Status</th>
+              @if($authData->RoleId != 4)
                 <th>Actions</th>
+              @endif
               </tr>
             </thead>
             <tbody class="table-border-bottom-0">
@@ -50,6 +54,7 @@ $menuTemplate = false;
                 </td>
                 <td>{{$item->UnitOfMeasurement}}</td>
                 <td> <span class="badge bg-label-primary me-1">{{$item->Status}}</span></td>
+              @if($authData->RoleId != 4)
                 <td>
                   <div class="dropdown">
                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
@@ -63,6 +68,7 @@ $menuTemplate = false;
                     </div>
                   </div>
                 </td>
+              @endif
               </tr>
               @endforeach
 
