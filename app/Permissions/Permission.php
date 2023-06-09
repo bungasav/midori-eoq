@@ -9,7 +9,6 @@ class Permission
     public const CAN_VIEW_USER = 'user';
     public const CAN_CREATE_USER = 'user-create';
     public const CAN_STORE_USER = 'user-store';
-
     public const CAN_EDIT_USER = 'user-edit';
     public const CAN_UPDATE_USER = 'user-update';
     public const CAN_DELETE_USER = 'user-delete';
@@ -25,7 +24,8 @@ class Permission
 
     public const CAN_VIEW_ITEM = 'item';
     public const CAN_CREATE_ITEM = 'item-create';
-    public const CAN_UPDATE_ITEM = 'item-edit';
+    public const CAN_EDIT_ITEM = 'item-edit';
+    public const CAN_UPDATE_ITEM = 'item-update';
     public const CAN_DELETE_ITEM = 'item-delete';
     public const CAN_STORE_ITEM = 'item-store';
 
@@ -39,9 +39,10 @@ class Permission
 
     public const CAN_VIEW_PRODUCT = 'product';
     public const CAN_CREATE_PRODUCT = 'product-create';
-    public const CAN_UPDATE_PRODUCT = 'product-edit';
+    public const CAN_EDIT_PRODUCT = 'product-edit';
     public const CAN_DELETE_PRODUCT = 'product-delete';
     public const CAN_STORE_PRODUCT = 'product-store';
+    public const CAN_UPDATE_PRODUCT = 'product-update';
 
 
     public const CAN_VIEW_PRODUCTION = 'production';
@@ -79,6 +80,7 @@ class Permission
                 self::CAN_VIEW_ITEM,
                 self::CAN_CREATE_ITEM,
                 self::CAN_STORE_ITEM,
+                self::CAN_EDIT_ITEM,
                 self::CAN_UPDATE_ITEM,
                 self::CAN_DELETE_ITEM,
             ];
@@ -122,6 +124,7 @@ class Permission
                 self::CAN_CREATE_PRODUCT,
                 self::CAN_STORE_PRODUCT,
                 self::CAN_UPDATE_PRODUCT,
+                self::CAN_EDIT_PRODUCT,
                 self::CAN_DELETE_PRODUCT,
                 self::CAN_VIEW_PRODUCTION,
                 self::CAN_CREATE_PRODUCTION,
